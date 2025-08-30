@@ -99,9 +99,7 @@ export default function DocsPage() {
                 <Link href="/blog" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Blog
                 </Link>
-                <Link href="/solutions" className="block text-slate-300/80 hover:text-white transition-colors font-light">
-                  Solutions
-                </Link>
+
                 <Link href="/contact" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Contact
                 </Link>

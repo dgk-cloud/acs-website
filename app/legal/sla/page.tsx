@@ -227,9 +227,7 @@ export default function ServiceLevelAgreementPage() {
                 <Link href="/blog" className="block text-muted-foreground hover:text-foreground transition-colors">
                   Blog
                 </Link>
-                <Link href="/solutions" className="block text-muted-foreground hover:text-foreground transition-colors">
-                  Solutions
-                </Link>
+
                 <Link href="/contact" className="block text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </Link>

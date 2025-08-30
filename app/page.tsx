@@ -2,7 +2,6 @@
 
 import { Navigation } from "@/components/navigation"
 import { GlobeDemo } from "@/components/globe-demo"
-import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
@@ -410,9 +409,6 @@ export default function HomePage() {
               <div className="space-y-3">
                 <Link href="/blog" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Blog
-                </Link>
-                <Link href="/solutions" className="block text-slate-300/80 hover:text-white transition-colors font-light">
-                  Solutions
                 </Link>
                 <Link href="/contact" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Contact

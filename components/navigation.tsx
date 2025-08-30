@@ -36,8 +36,8 @@ export function Navigation() {
             <Link href="/blog" className="text-gray-300 hover:text-white transition-colors px-3 py-1">
               Blog
             </Link>
-            <Link href="/solutions" className="text-gray-300 hover:text-white transition-colors px-3 py-1">
-              Solutions
+            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors px-3 py-1">
+              Contact
             </Link>
           </div>
 
