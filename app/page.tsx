@@ -1,0 +1,454 @@
+"use client"
+
+import { Navigation } from "@/components/navigation"
+import { GlobeDemo } from "@/components/globe-demo"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
+
+// FAQ Item Component
+function FAQItem({ question, answer, isOpen, onToggle }: { 
+  question: string; 
+  answer: string; 
+  isOpen: boolean; 
+  onToggle: () => void;
+}) {
+  return (
+    <div className="backdrop-blur-xl bg-slate-800/30 border border-slate-600/30 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:border-slate-500/50 transition-all duration-300">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between p-6 text-left group"
+      >
+        <span className="text-lg font-medium text-white group-hover:text-slate-200 transition-colors pr-4">
+          {question}
+        </span>
+        <div className="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-200">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`text-white transition-transform duration-200 ${
+              isOpen ? "rotate-45" : "rotate-0"
+            }`}
+          >
+            <path d="M5 12h14"></path>
+            <path d="M12 5v14"></path>
+          </svg>
+        </div>
+      </button>
+      <div className={`px-6 pb-6 transition-all duration-300 ease-in-out ${
+        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+      }`}>
+        <p className="text-slate-300/80 text-lg leading-relaxed font-light">
+          {answer}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// FAQ Section Component
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      question: "What is Object Storage?",
+      answer: "Object storage is a data storage architecture that manages data as self-contained \"objects\" comprising the data itself, rich metadata, and a unique identifier, stored in a flat, massively scalable pool rather than hierarchical folders or fixed-size blocks. It's optimized for unlimited amounts of data, offering high durability, easy access via APIs, and cost-effective scalability."
+    },
+    {
+      question: "How do I work with this S3 compatible API?",
+      answer: "ACS is compatible with the S3 API, so you can use standard AWS S3 SDKs, tools and libraries. It also allows you to use other software that uses S3 compatible storage like LanceDB, FUSE mounts, Apache Spark etc. See our docs for more details."
+    },
+    {
+      question: "How does ACS ensure reliable data access around the world?",
+      answer: "Unlike traditional object storage, in ACS buckets are global entities and data is stored, replicated and moved in datacenters throughout the world."
+    },
+    {
+      question: "How do I get started with ACS?",
+      answer: "Getting started with ACS is simple. Contact our team for sign-up and get an API key, make a one-line change to your code to update the endpoint, and start using ACS with your existing S3-compatible tools. We offer comprehensive documentation and support to help you integrate quickly."
+    }
+  ];
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-3xl shadow-[0_10px_60px_-15px_rgba(0,0,0,0.8)] p-8">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          {/* Left Column */}
+          <div className="lg:w-2/5 xl:w-1/3">
+            <div className="sticky top-8">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2F74FF]/20 to-[#1E40AF]/20 text-[#2F74FF] px-4 py-2 rounded-full text-sm font-light tracking-wide mb-8 backdrop-blur-sm border border-[#2F74FF]/30">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <path d="M12 17h.01"></path>
+                </svg>
+                Knowledge Base
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8 leading-tight text-white tracking-tighter">
+                Frequently Asked <span className="metallic-text">Questions</span>
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-slate-300/80">
+                  <div className="w-2 h-2 bg-[#2F74FF] rounded-full"></div>
+                  <span className="text-lg font-light">Global Object Storage</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-300/80">
+                  <div className="w-2 h-2 bg-[#2F74FF] rounded-full"></div>
+                  <span className="text-lg font-light">S3 API Compatibility</span>
+                </div>
+                <div className="flex items-center gap-3 text-slate-300/80">
+                  <div className="w-2 h-2 bg-[#2F74FF] rounded-full"></div>
+                  <span className="text-lg font-light">Worldwide Distribution</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Column - FAQ Items */}
+          <div className="lg:w-3/5 xl:w-2/3">
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <FAQItem
+                  key={index}
+                  question={faq.question}
+                  answer={faq.answer}
+                  isOpen={openIndex === index}
+                  onToggle={() => handleToggle(index)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen relative">
+      {/* Global Grid Background */}
+      <div className="fixed inset-0 opacity-30 pointer-events-none blur-[0.5px]" style={{
+        backgroundImage: `
+          linear-gradient(rgba(47,116,255,0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(47,116,255,0.1) 1px, transparent 1px)
+        `,
+        backgroundSize: '50px 50px'
+      }}></div>
+      
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center mt-16">
+          <Badge className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-900/30 border border-blue-700/50 text-blue-300 rounded-full text-sm font-medium backdrop-blur-sm hover:bg-blue-900/50 hover:border-blue-600/70 transition-all duration-300 hover:scale-105">
+            Worldwide Cloud Object Storage
+          </Badge>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal text-white tracking-tighter mb-6">
+            Globally Distributed, Performant, S3 Compatible{" "}
+            <span className="metallic-text">
+              Object Storage
+            </span>
+          </h1>
+
+          <p className="text-xl text-muted-foreground text-balance  max-w-3xl mx-auto">
+            Efficiently run AI workloads anywhere without managing storage
+          </p>
+
+          <GlobeDemo />
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight mb-6">
+              <span className="metallic-text">Core</span> Features
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Everything you need for productive AI workloads and global data storage.
+            </p>
+          </div>
+
+          {/* Core Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* S3 Compatible API */}
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-8 flex flex-col h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
+                  <h3 className="text-xl font-light tracking-tight text-white">S3 Compatible API</h3>
+                </div>
+                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                  Work seamlessly with existing AWS SDKs and extensions with a one line code change to the endpoint.
+                </p>
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                    api: s3-compatible | endpoint: acs.io
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Global Data Distribution */}
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-8 flex flex-col h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
+                  <h3 className="text-xl font-light tracking-tight text-white">Global Data Distribution</h3>
+                </div>
+                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                  Data is stored in datacenters around the world for optimal performance and reliability.
+                </p>
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                    regions: [us-east, eu-west, ap-southeast]
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* High Performance */}
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-8 flex flex-col h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
+                  <h3 className="text-xl font-light tracking-tight text-white">High Performance</h3>
+                </div>
+                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                  Achieve lightning-fast inference with optimized data access and low latency reads.
+                </p>
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                    latency: &lt;10ms | throughput: unlimited
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Strong Consistency - Spans 2 columns */}
+            <div className="md:col-span-2 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-8 flex flex-col h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
+                  <h3 className="text-xl font-light tracking-tight text-white">Strong Consistency</h3>
+                </div>
+                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                  Simplify development without sacrificing performance with strong consistency within a region and eventual consistency between regions.
+                </p>
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                    consistency: strong | regions: eventual
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Highly Reliable */}
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-8 flex flex-col h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
+                  <h3 className="text-xl font-light tracking-tight text-white">Highly Reliable</h3>
+                </div>
+                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                  99.99% availability to ensure you can access your data whenever. 99.999999999% data durability.
+                </p>
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                    uptime: 99.99% | durability: 99.999999999%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Get Started Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tighter mb-6">
+              Get Started in <span className="metallic-text">Minutes</span>
+            </h2>
+            <p className="text-xl text-slate-300/90 max-w-3xl mx-auto leading-relaxed">
+              Simple integration with your existing workflow
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Steps */}
+            <div className="space-y-8">
+              {/* Step 1 */}
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-2xl tracking-tight shadow-lg">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-2xl font-light text-white mb-3 tracking-tight">Contact ACS for sign-up and get an API Key</h3>
+                  <p className="text-slate-300/80 text-lg leading-relaxed">Reach out to our team to get onboarded and receive your credentials.</p>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-2xl tracking-tight shadow-lg">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-2xl font-light text-white mb-3 tracking-tight">Make a 1-line change to your code</h3>
+                  <p className="text-slate-300/80 text-lg leading-relaxed">Update your endpoint configuration with ACS.</p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-2xl tracking-tight shadow-lg">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-2xl font-light text-white mb-3 tracking-tight">Set your API key and start running</h3>
+                  <p className="text-slate-300/80 text-lg leading-relaxed">Configure your credentials and begin using ACS with your existing S3-compatible tools.</p>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-8">
+                <a href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] hover:from-[#2F74FF]/90 hover:to-[#1E40AF]/90 text-white px-10 py-5 rounded-2xl font-light text-xl tracking-tight transition-all duration-300 shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:shadow-[0_12px_40px_rgba(47,116,255,0.4)] hover:scale-105">
+                  Get Started Today
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Code Preview */}
+            <div className="backdrop-blur-sm bg-black/20 p-4 rounded-xl">
+              <div className="bg-slate-800/70 backdrop-blur-lg border border-slate-700/50 rounded-2xl shadow-lg p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="text-xs text-gray-400">main.py</div>
+                </div>
+                <div className="text-sm font-mono leading-6 text-gray-300">
+                  <div className="mb-1"><span className="text-purple-400">import</span> <span className="text-green-400">boto3</span></div>
+                  <div className="mb-1">&nbsp;</div>
+                  <div className="mb-1"><span className="text-purple-400">#</span> <span className="text-gray-500">Create S3 service client</span></div>
+                  <div className="mb-1"><span className="text-blue-400">svc</span> = <span className="text-green-400">boto3</span>.<span className="text-yellow-400">client</span>(</div>
+                  <div className="mb-1 ml-4"><span className="text-yellow-400">'s3'</span>,</div>
+                  <div className="mb-1 ml-4"><span className="text-indigo-400">endpoint_url</span>=<span className="text-yellow-400">'https://accelerateprod.com'</span></div>
+                  <div className="mb-1">)</div>
+                  <div className="mb-1">&nbsp;</div>
+                  <div className="mb-1"><span className="text-purple-400">#</span> <span className="text-gray-500">Set your API key</span></div>
+                  <div className="mb-1"><span className="text-blue-400">svc</span>.<span className="text-green-400">_request_signer</span>.<span className="text-yellow-400">_credentials</span> = <span className="text-yellow-400">'your-api-key'</span></div>
+                  <div className="mb-1">&nbsp;</div>
+                  <div><span className="text-purple-400">#</span> <span className="text-gray-500">Start using ACS!</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
+
+      {/* Footer */}
+      <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-12">
+            <div>
+              <div className="mb-6">
+                <Image 
+                  src="/acs-logo.png" 
+                  alt="ACS Logo" 
+                  width={200} 
+                  height={100} 
+                  className="h-16 w-auto"
+                />
+              </div>
+              <p className="text-slate-300/80 text-lg leading-relaxed font-light">Worldwide cloud object storage built for AI workloads.</p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Product</h4>
+              <div className="space-y-3">
+                <Link href="/" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                  Overview
+                </Link>
+                <Link href="/pricing" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                  Pricing
+                </Link>
+                <Link href="/docs" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                  Documentation
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Company</h4>
+              <div className="space-y-3">
+                <Link href="/blog" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                  Blog
+                </Link>
+                <Link href="/solutions" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                  Solutions
+                </Link>
+                <Link href="/contact" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                  Contact
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Legal</h4>
+              <div className="space-y-3">
+                <Link
+                  href="/legal/privacy"
+                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/legal/terms"
+                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
+                >
+                  Terms of Service
+                </Link>
+                <Link href="/legal/sla" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                  Service Level Agreement
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-slate-700/50 mt-12 pt-8 text-center">
+            <p className="text-slate-400 font-light">&copy; 2025 Accelerated Cloud Storage. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
