@@ -43,7 +43,6 @@ function BigGlobe({
   config?: COBEOptions;
 }) {
   let phi = 0;
-  let width = 0;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
@@ -71,7 +70,7 @@ function BigGlobe({
   };
 
   useEffect(() => {
-    let currentWidth = width;
+    let currentWidth = 0;
     const onResize = () => {
       if (canvasRef.current) {
         currentWidth = canvasRef.current.offsetWidth;
@@ -82,7 +81,7 @@ function BigGlobe({
     onResize();
 
     console.log("Creating globe with canvas:", canvasRef.current);
-    console.log("Canvas width:", width);
+    console.log("Canvas width:", currentWidth);
 
     try {
       const globe = createGlobe(canvasRef.current!, {

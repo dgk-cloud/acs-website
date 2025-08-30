@@ -2,7 +2,20 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
+import { Inter, Instrument_Serif } from "next/font/google"
 import "./globals.css"
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-inter',
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-instrument-serif',
+})
 
 export const metadata: Metadata = {
   title: "ACS - Worldwide Cloud Object Storage",
@@ -17,10 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:wght@400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>{children}</body>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${instrumentSerif.variable}`}>{children}</body>
     </html>
   )
 }

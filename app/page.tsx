@@ -2,6 +2,7 @@
 
 import { Navigation } from "@/components/navigation"
 import { GlobeDemo } from "@/components/globe-demo"
+import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"

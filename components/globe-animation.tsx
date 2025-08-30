@@ -49,7 +49,7 @@ export function GlobeAnimation() {
             { location: [48.8566, 2.3522], size: 0.03 },    // Paris
             { location: [39.9042, 116.4074], size: 0.04 },  // Beijing
           ],
-          onRender: (state: { phi: number }) => {
+          onRender: (state: Record<string, any>) => {
             state.phi = phi
             phi += 0.003 // Slower rotation for better visibility
           },
