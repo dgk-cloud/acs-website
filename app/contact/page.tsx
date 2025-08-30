@@ -92,48 +92,42 @@ export default function ContactPage() {
             <div>
               <h4 className="text-lg font-light text-white mb-6 tracking-tight">Product</h4>
               <div className="space-y-3">
-                <Link href="/" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                <span className="block text-slate-300/80 font-light">
                   Overview
-                </Link>
-                <Link href="/pricing" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                </span>
+                <span className="block text-slate-300/80 font-light">
                   Pricing
-                </Link>
-                <Link href="/docs" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                </span>
+                <span className="block text-slate-300/80 font-light">
                   Documentation
-                </Link>
+                </span>
               </div>
             </div>
 
             <div>
               <h4 className="text-lg font-light text-white mb-6 tracking-tight">Company</h4>
               <div className="space-y-3">
-                <Link href="/blog" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                <span className="block text-slate-300/80 font-light">
                   Blog
-                </Link>
-                <Link href="/contact" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                </span>
+                <span className="block text-slate-300/80 font-light">
                   Contact
-                </Link>
+                </span>
               </div>
             </div>
 
             <div>
               <h4 className="text-lg font-light text-white mb-6 tracking-tight">Legal</h4>
               <div className="space-y-3">
-                <Link
-                  href="/legal/privacy"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+                <span className="block text-slate-300/80 font-light">
                   Privacy Policy
-                </Link>
-                <Link
-                  href="/legal/terms"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+                </span>
+                <span className="block text-slate-300/80 font-light">
                   Terms of Service
-                </Link>
-                <Link href="/legal/sla" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                </span>
+                <span className="block text-slate-300/80 font-light">
                   Service Level Agreement
-                </Link>
+                </span>
               </div>
             </div>
           </div>
