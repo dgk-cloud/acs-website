@@ -153,9 +153,9 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center mt-16">
-          <Badge className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-900/30 border border-blue-700/50 text-blue-300 rounded-full text-sm font-medium backdrop-blur-sm hover:bg-blue-900/50 hover:border-blue-600/70 transition-all duration-300 hover:scale-105">
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-900/30 border border-blue-700/50 text-blue-300 rounded-full text-sm font-medium backdrop-blur-sm hover:bg-blue-900/50 hover:border-blue-600/70 transition-all duration-300 hover:scale-105">
             Worldwide Cloud Object Storage
-          </Badge>
+          </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal text-white tracking-tighter mb-6">
             Globally Distributed, Performant, S3 Compatible{" "}
