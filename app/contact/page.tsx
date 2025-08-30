@@ -70,11 +70,11 @@ export default function ContactPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-12">
             <div>
-              <div className="mb-4">
+              <div className="mb-6">
                 <Image 
                   src="/acs-logo.png" 
                   alt="ACS Logo" 
@@ -83,60 +83,60 @@ export default function ContactPage() {
                   className="h-16 w-auto"
                 />
               </div>
-              <p className="text-muted-foreground">Worldwide cloud object storage built for AI workloads.</p>
+              <p className="text-slate-300/80 text-lg leading-relaxed font-light">Worldwide cloud object storage built for AI workloads.</p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <div className="space-y-2">
-                <Link href="/" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Product</h4>
+              <div className="space-y-3">
+                <Link href="/" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Overview
                 </Link>
-                <Link href="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/pricing" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Pricing
                 </Link>
-                <Link href="/docs" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/docs" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Documentation
                 </Link>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <div className="space-y-2">
-                <Link href="/blog" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Company</h4>
+              <div className="space-y-3">
+                <Link href="/blog" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Blog
                 </Link>
-                <Link href="/contact" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Contact
                 </Link>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <div className="space-y-2">
+              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Legal</h4>
+              <div className="space-y-3">
                 <Link
                   href="/legal/privacy"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href="/legal/terms"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
                 >
                   Terms of Service
                 </Link>
-                <Link href="/legal/sla" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/legal/sla" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Service Level Agreement
                 </Link>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-border mt-12 pt-8 text-center">
-            <p className="text-muted-foreground">&copy; 2025 Accelerated Cloud Storage. All rights reserved.</p>
+          <div className="border-t border-slate-700/50 mt-12 pt-8 text-center">
+            <p className="text-slate-400 font-light">&copy; 2025 Accelerated Cloud Storage. All rights reserved.</p>
           </div>
         </div>
       </footer>
