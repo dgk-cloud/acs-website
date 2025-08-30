@@ -1,7 +1,6 @@
 "use client"
 
 import { Navigation } from "@/components/navigation"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -45,24 +44,28 @@ export default function ContactPage() {
           <section className="space-y-8">
             <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl p-8">
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] hover:from-[#2F74FF]/90 hover:to-[#1E40AF]/90 text-white px-8 py-3 rounded-xl font-light transition-all duration-300 shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:shadow-[0_12px_40px_rgba(47,116,255,0.4)] hover:scale-105">
-                  <Link href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" target="_blank" rel="noopener noreferrer">
-                    Schedule a Meeting
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-xl font-light transition-all duration-300 border border-white/20">
-                  <Link href="mailto:sales@acceleratedcloudstorage.com">
-                    Email Us
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                      <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                  </Link>
-                </Button>
+                <Link 
+                  href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] hover:from-[#2F74FF]/90 hover:to-[#1E40AF]/90 text-white px-8 py-3 rounded-xl font-light transition-all duration-300 shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:shadow-[0_12px_40px_rgba(47,116,255,0.4)] hover:scale-105"
+                >
+                  Schedule a Meeting
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </Link>
+                <Link 
+                  href="mailto:sales@acceleratedcloudstorage.com"
+                  className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-xl font-light transition-all duration-300 border border-white/20"
+                >
+                  Email Us
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </Link>
               </div>
             </div>
           </section>
