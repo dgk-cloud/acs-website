@@ -37,16 +37,16 @@ export function Navigation() {
               Blog
             </Link>
             <Link href="/solutions" className="text-gray-300 hover:text-white transition-colors px-3 py-1">
-              Contact
+              Solutions
             </Link>
           </div>
 
           {/* Buttons on the right */}
           <div className="absolute right-0 flex items-center space-x-4">
-            <Button asChild variant="outline" size="sm" className="bg-white/10 border-white/30 text-white backdrop-blur-md hover:bg-white/20 hover:border-white/50 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl">
+            <Button asChild variant="outline" size="sm" className="bg-blue-900/30 border-blue-700/50 text-blue-300 backdrop-blur-sm hover:bg-blue-900/50 hover:border-blue-600/70 transition-all duration-300 hover:scale-105">
               <Link href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" target="_blank" rel="noopener noreferrer">Contact</Link>
             </Button>
-            <Button asChild size="sm" className="bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] hover:from-[#2F74FF]/90 hover:to-[#1E40AF]/90 text-white border-0 backdrop-blur-md transition-all duration-300 hover:scale-110 shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:shadow-[0_12px_40px_rgba(47,116,255,0.4)]">
+            <Button asChild size="sm" className="bg-blue-900/30 border-blue-700/50 text-blue-300 backdrop-blur-sm hover:bg-blue-900/50 hover:border-blue-600/70 transition-all duration-300 hover:scale-105">
               <Link href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" target="_blank" rel="noopener noreferrer">Get Started</Link>
             </Button>
           </div>
