@@ -71,9 +71,10 @@ function BigGlobe({
   };
 
   useEffect(() => {
+    let currentWidth = width;
     const onResize = () => {
       if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth;
+        currentWidth = canvasRef.current.offsetWidth;
       }
     };
 
@@ -86,13 +87,13 @@ function BigGlobe({
     try {
       const globe = createGlobe(canvasRef.current!, {
         ...config,
-        width: width * 2,
-        height: width * 2,
+        width: currentWidth * 2,
+        height: currentWidth * 2,
         onRender: (state) => {
           if (!pointerInteracting.current) phi += 0.005;
           state.phi = phi + rs.get();
-          state.width = width * 2;
-          state.height = width * 2;
+          state.width = currentWidth * 2;
+          state.height = currentWidth * 2;
         },
       });
 

@@ -134,7 +134,7 @@ export default function PricingPage() {
               </div>
               <p className="text-slate-300/80 mb-8 text-base leading-relaxed">Custom solutions for larger workloads.</p>
               <div className="mb-10">
-                <span className="text-5xl font-light text-white">Let's Talk</span>
+                <span className="text-5xl font-light text-white">Let&apos;s Talk</span>
               </div>
               <ul className="space-y-3 text-sm flex-1">
                 <li className="flex items-center space-x-2">

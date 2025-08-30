@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 
 export function GlobeAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const globeRef = useRef<any>(null)
+  const globeRef = useRef<{ destroy?: () => void; markers?: Array<{ size: number }> } | null>(null)
 
   useEffect(() => {
     let phi = 0
@@ -49,7 +49,7 @@ export function GlobeAnimation() {
             { location: [48.8566, 2.3522], size: 0.03 },    // Paris
             { location: [39.9042, 116.4074], size: 0.04 },  // Beijing
           ],
-          onRender: (state: any) => {
+          onRender: (state: { phi: number }) => {
             state.phi = phi
             phi += 0.003 // Slower rotation for better visibility
           },
@@ -60,7 +60,7 @@ export function GlobeAnimation() {
           if (globeRef.current) {
             // Add pulsing effect to markers
             const markers = globeRef.current.markers || []
-            markers.forEach((marker: any, index: number) => {
+            markers.forEach((marker: { size: number }, index: number) => {
               marker.size = 0.03 + Math.sin(Date.now() * 0.001 + index) * 0.02
             })
           }
