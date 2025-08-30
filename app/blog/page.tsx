@@ -37,7 +37,7 @@ export default function BlogPage() {
             </h1>
             
             <p className="max-w-2xl mx-auto text-xl text-slate-300/90 leading-relaxed">
-              We're working hard to bring you valuable content. Stay tuned for insights about cloud storage, AI workloads, and industry trends.
+              We&apos;re working hard to bring you valuable content. Stay tuned for insights about cloud storage, AI workloads, and industry trends.
             </p>
           </section>
 

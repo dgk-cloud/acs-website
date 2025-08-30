@@ -37,7 +37,7 @@ export default function DocsPage() {
             </h1>
             
             <p className="max-w-2xl mx-auto text-xl text-slate-300/90 leading-relaxed">
-              We're working hard to bring you comprehensive documentation. Stay tuned for detailed guides, API references, and tutorials.
+              We&apos;re working hard to bring you comprehensive documentation. Stay tuned for detailed guides, API references, and tutorials.
             </p>
           </section>
 

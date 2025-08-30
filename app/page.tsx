@@ -2,9 +2,6 @@
 
 import { Navigation } from "@/components/navigation"
 import { GlobeDemo } from "@/components/globe-demo"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
@@ -63,7 +60,7 @@ function FAQSection() {
   const faqs = [
     {
       question: "What is Object Storage?",
-      answer: "Object storage is a data storage architecture that manages data as self-contained \"objects\" comprising the data itself, rich metadata, and a unique identifier, stored in a flat, massively scalable pool rather than hierarchical folders or fixed-size blocks. It's optimized for unlimited amounts of data, offering high durability, easy access via APIs, and cost-effective scalability."
+      answer: "Object storage is a data storage architecture that manages data as self-contained &quot;objects&quot; comprising the data itself, rich metadata, and a unique identifier, stored in a flat, massively scalable pool rather than hierarchical folders or fixed-size blocks. It&apos;s optimized for unlimited amounts of data, offering high durability, easy access via APIs, and cost-effective scalability."
     },
     {
       question: "How do I work with this S3 compatible API?",

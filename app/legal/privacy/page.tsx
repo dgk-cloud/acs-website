@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Accelerated Cloud Storage ("ACS," "we," "us," or "our") is committed to protecting your privacy. This
+                Accelerated Cloud Storage (&quot;ACS,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This
                 Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our
                 cloud storage services.
               </p>
@@ -122,7 +122,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-bold mb-4">9. Changes to This Policy</h2>
               <p className="text-muted-foreground leading-relaxed">
                 We may update this Privacy Policy from time to time. We will notify you of any material changes by
-                posting the new policy on our website and updating the "Last updated" date.
+                posting the new policy on our website and updating the &quot;Last updated&quot; date.
               </p>
             </section>
           </div>

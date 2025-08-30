@@ -23,8 +23,8 @@ export default function ServiceLevelAgreementPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Overview</h2>
               <p className="text-muted-foreground leading-relaxed">
-                This Service Level Agreement ("SLA") describes the uptime and performance commitments that Accelerated
-                Cloud Storage ("ACS") provides to its customers. This SLA applies to all paid ACS services.
+                This Service Level Agreement (&quot;SLA&quot;) describes the uptime and performance commitments that Accelerated
+                Cloud Storage (&quot;ACS&quot;) provides to its customers. This SLA applies to all paid ACS services.
               </p>
             </section>
 

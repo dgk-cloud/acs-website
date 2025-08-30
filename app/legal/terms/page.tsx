@@ -22,8 +22,8 @@ export default function TermsOfServicePage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing or using Accelerated Cloud Storage ("ACS") services, you agree to be bound by these Terms
-                of Service ("Terms"). If you do not agree to these Terms, you may not use our services.
+                By accessing or using Accelerated Cloud Storage (&quot;ACS&quot;) services, you agree to be bound by these Terms
+                of Service (&quot;Terms&quot;). If you do not agree to these Terms, you may not use our services.
               </p>
             </section>
 
