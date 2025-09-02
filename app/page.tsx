@@ -197,25 +197,25 @@ export default function HomePage() {
                 </p>
                 <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
                   <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
-                    api: s3-compatible | endpoint: acs.io
+                    api: s3-compatible | endpoint: acceleratedprod.com
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Global Data Distribution */}
-            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+            {/* Strong Consistency - Spans 2 columns */}
+            <div className="md:col-span-2 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
               <div className="p-8 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
-                  <h3 className="text-xl font-light tracking-tight text-white">Global Data Distribution</h3>
+                  <h3 className="text-xl font-light tracking-tight text-white">Strong Consistency</h3>
                 </div>
                 <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
-                  Data is stored in datacenters around the world for optimal performance and reliability.
+                  Simplify development without sacrificing performance with strong consistency within a region and eventual consistency between regions.
                 </p>
                 <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
                   <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
-                    regions: [us-east, eu-west, ap-southeast]
+                    consistency: strong | regions: eventual
                   </div>
                 </div>
               </div>
@@ -239,19 +239,29 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Strong Consistency - Spans 2 columns */}
+            {/* Global Data Distribution - Spans 2 columns */}
             <div className="md:col-span-2 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
               <div className="p-8 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
-                  <h3 className="text-xl font-light tracking-tight text-white">Strong Consistency</h3>
+                  <h3 className="text-xl font-light tracking-tight text-white">Global Data Distribution</h3>
                 </div>
                 <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
-                  Simplify development without sacrificing performance with strong consistency within a region and eventual consistency between regions.
+                  Data is stored in datacenters around the world for optimal performance and reliability.
                 </p>
                 <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
                   <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
-                    consistency: strong | regions: eventual
+                    regions: [us-v (united states, virginia)
+us-oh (united states, ohio)
+us-ca (united states, california)
+us-or (united states, oregon)
+ca-q (canada, quebec)
+uk-l (uk, greater london)
+de-he (germany, hesse)
+jp-13 (japan, tokyo prefecture)
+kr-11 (south korea, seoul special city)
+au-nsw (australia, new south wales)
+]
                   </div>
                 </div>
               </div>
