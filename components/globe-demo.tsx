@@ -74,6 +74,8 @@ function BigGlobe({
     const onResize = () => {
       if (canvasRef.current) {
         currentWidth = canvasRef.current.offsetWidth;
+        // Ensure minimum width for mobile
+        if (currentWidth < 300) currentWidth = 300;
       }
     };
 
@@ -116,13 +118,13 @@ function BigGlobe({
   return (
     <div
       className={cn(
-        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[2000px]",
+        "relative w-full h-full",
         className,
       )}
     >
       <canvas
         className={cn(
-          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
+          "w-full h-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
         )}
         ref={canvasRef}
         onPointerDown={(e) => {
@@ -142,8 +144,8 @@ function BigGlobe({
 
 export function GlobeDemo() {
   return (
-    <div className="relative w-full max-w-7xl mx-auto h-160 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[200%]">
+    <div className="relative w-full h-full overflow-hidden">
+      <div className="absolute inset-0">
         <BigGlobe className="w-full h-full" />
       </div>
     </div>
