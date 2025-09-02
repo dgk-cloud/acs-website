@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   title: "ACS - Worldwide Cloud Object Storage",
   description: "Globally distributed, performant, S3 compatible object storage for AI workloads",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 }
 
 export default function RootLayout({

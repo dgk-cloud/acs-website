@@ -237,21 +237,15 @@ export default function ServiceLevelAgreementPage() {
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <div className="space-y-2">
-                <Link
-                  href="/legal/privacy"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <span className="block text-muted-foreground cursor-default">
                   Privacy Policy
-                </Link>
-                <Link
-                  href="/legal/terms"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
-                >
+                </span>
+                <span className="block text-muted-foreground cursor-default">
                   Terms of Service
-                </Link>
-                <Link href="/legal/sla" className="block text-muted-foreground hover:text-foreground transition-colors">
+                </span>
+                <span className="block text-muted-foreground cursor-default">
                   Service Level Agreement
-                </Link>
+                </span>
               </div>
             </div>
           </div>

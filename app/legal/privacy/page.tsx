@@ -8,17 +8,17 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pt-20 md:pt-28 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <Badge variant="secondary" className="mb-6">
             Legal
           </Badge>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Privacy Policy</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">Privacy Policy</h1>
 
-          <p className="text-muted-foreground mb-8">Last updated: December 2024</p>
+          <p className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-base">Last updated: December 2024</p>
 
-          <div className="prose prose-invert max-w-none space-y-8">
+          <div className="prose prose-invert max-w-none space-y-6 md:space-y-8">
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
               <p className="text-muted-foreground leading-relaxed">
@@ -130,74 +130,68 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <footer className="py-4 md:py-8 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="mb-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+            <div className="col-span-2 md:col-span-1">
+              <div className="mb-2 md:mb-3">
                 <Image 
                   src="/acs-logo.png" 
                   alt="ACS Logo" 
                   width={200} 
                   height={100} 
-                  className="h-16 w-auto"
+                  className="h-8 md:h-10 lg:h-12 w-auto"
                 />
               </div>
-              <p className="text-muted-foreground">Worldwide cloud object storage built for AI workloads.</p>
+              <p className="text-muted-foreground text-xs md:text-sm lg:text-base">Worldwide cloud object storage built for AI workloads.</p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <div className="space-y-2">
-                <Link href="/" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <h4 className="font-semibold mb-2 md:mb-3 lg:mb-4 text-sm md:text-base">Product</h4>
+              <div className="space-y-1 md:space-y-2">
+                <Link href="/" className="block text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm lg:text-base">
                   Overview
                 </Link>
-                <Link href="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm lg:text-base">
                   Pricing
                 </Link>
-                <Link href="/docs" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/docs" className="block text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm lg:text-base">
                   Documentation
                 </Link>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <div className="space-y-2">
-                <Link href="/blog" className="block text-muted-foreground hover:text-foreground transition-colors">
+              <h4 className="font-semibold mb-2 md:mb-3 lg:mb-4 text-sm md:text-base">Company</h4>
+              <div className="space-y-1 md:space-y-2">
+                <Link href="/blog" className="block text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm lg:text-base">
                   Blog
                 </Link>
 
-                <Link href="/contact" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="block text-muted-foreground hover:text-foreground transition-colors text-xs md:text-sm lg:text-base">
                   Contact
                 </Link>
               </div>
             </div>
 
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <div className="space-y-2">
-                <Link
-                  href="/legal/privacy"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
-                >
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="font-semibold mb-2 md:mb-3 lg:mb-4 text-sm md:text-base">Legal</h4>
+              <div className="space-y-1 md:space-y-2">
+                <span className="block text-muted-foreground cursor-default text-xs md:text-sm lg:text-base">
                   Privacy Policy
-                </Link>
-                <Link
-                  href="/legal/terms"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
-                >
+                </span>
+                <span className="block text-muted-foreground cursor-default text-xs md:text-sm lg:text-base">
                   Terms of Service
-                </Link>
-                <Link href="/legal/sla" className="block text-muted-foreground hover:text-foreground transition-colors">
+                </span>
+                <span className="block text-muted-foreground cursor-default text-xs md:text-sm lg:text-base">
                   Service Level Agreement
-                </Link>
+                </span>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 Accelerated Cloud Storage. All rights reserved.</p>
+          <div className="border-t border-border mt-4 md:mt-6 lg:mt-8 pt-3 md:pt-4 lg:pt-6 text-center text-muted-foreground">
+            <p className="text-xs md:text-sm lg:text-base">&copy; 2024 Accelerated Cloud Storage. All rights reserved.</p>
           </div>
         </div>
       </footer>

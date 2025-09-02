@@ -8,13 +8,13 @@ export default function TermsOfServicePage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pt-20 md:pt-28 pb-12 md:pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <Badge variant="secondary" className="mb-6">
             Legal
           </Badge>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Terms of Service</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">Terms of Service</h1>
 
           <p className="text-muted-foreground mb-8">Last updated: December 2024</p>
 
@@ -193,21 +193,15 @@ export default function TermsOfServicePage() {
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <div className="space-y-2">
-                <Link
-                  href="/legal/privacy"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <span className="block text-muted-foreground cursor-default">
                   Privacy Policy
-                </Link>
-                <Link
-                  href="/legal/terms"
-                  className="block text-muted-foreground hover:text-foreground transition-colors"
-                >
+                </span>
+                <span className="block text-muted-foreground cursor-default">
                   Terms of Service
-                </Link>
-                <Link href="/legal/sla" className="block text-muted-foreground hover:text-foreground transition-colors">
+                </span>
+                <span className="block text-muted-foreground cursor-default">
                   Service Level Agreement
-                </Link>
+                </span>
               </div>
             </div>
           </div>

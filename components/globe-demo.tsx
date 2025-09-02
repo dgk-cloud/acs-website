@@ -13,7 +13,7 @@ const GLOBE_CONFIG: COBEOptions = {
   onRender: () => {},
   devicePixelRatio: 2,
   phi: 0,
-  theta: 0.5,
+  theta: 0.3,
   dark: 0,
   diffuse: 0.5,
   mapSamples: 16000,
@@ -22,16 +22,16 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [40 / 200, 116 / 255, 255 / 255],
   glowColor: [31 / 255, 177 / 255, 255 / 255],
   markers: [
-    { location: [14.5995, 120.9842], size: 0.03 },
-    { location: [19.076, 72.8777], size: 0.1 },
-    { location: [23.8103, 90.4125], size: 0.05 },
-    { location: [30.0444, 31.2357], size: 0.07 },
-    { location: [39.9042, 116.4074], size: 0.08 },
-    { location: [-23.5505, -46.6333], size: 0.1 },
-    { location: [19.4326, -99.1332], size: 0.1 },
-    { location: [40.7128, -74.006], size: 0.1 },
-    { location: [34.6937, 135.5022], size: 0.05 },
-    { location: [41.0082, 28.9784], size: 0.06 },
+    { location: [37.4316, -78.6569], size: 0.08 }, // us-v (united states, virginia)
+    { location: [40.3888, -82.7649], size: 0.08 }, // us-oh (united states, ohio)
+    { location: [36.7783, -119.4179], size: 0.08 }, // us-ca (united states, california)
+    { location: [43.8041, -120.5542], size: 0.08 }, // us-or (united states, oregon)
+    { location: [46.8139, -71.2080], size: 0.08 }, // ca-q (canada, quebec)
+    { location: [51.5074, -0.1278], size: 0.08 }, // uk-l (uk, greater london)
+    { location: [50.1109, 8.6821], size: 0.08 }, // de-he (germany, hesse)
+    { location: [35.6762, 139.6503], size: 0.08 }, // jp-13 (japan, tokyo prefecture)
+    { location: [37.5665, 126.9780], size: 0.08 }, // kr-11 (south korea, seoul special city)
+    { location: [-33.8688, 151.2093], size: 0.08 }, // au-nsw (australia, new south wales)
   ],
 };
 
@@ -74,8 +74,9 @@ function BigGlobe({
     const onResize = () => {
       if (canvasRef.current) {
         currentWidth = canvasRef.current.offsetWidth;
-        // Ensure minimum width for mobile
-        if (currentWidth < 300) currentWidth = 300;
+      }
+      if (!currentWidth && typeof window !== "undefined") {
+        currentWidth = Math.min(window.innerWidth, 600); // sensible mobile fallback
       }
     };
 
@@ -118,13 +119,13 @@ function BigGlobe({
   return (
     <div
       className={cn(
-        "relative w-full h-full",
+        "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[2000px]",
         className,
       )}
     >
       <canvas
         className={cn(
-          "w-full h-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
+          "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
         )}
         ref={canvasRef}
         onPointerDown={(e) => {
@@ -144,9 +145,9 @@ function BigGlobe({
 
 export function GlobeDemo() {
   return (
-    <div className="relative w-full h-full overflow-hidden">
-      <div className="absolute inset-0 -top-1/2 left-1/2 transform -translate-x-1/2 scale-150">
-        <BigGlobe className="w-full h-full" />
+    <div className="relative w-full max-w-7xl mx-auto aspect-square min-h-[340px] sm:min-h-[380px] md:min-h-[520px] lg:min-h-[640px] overflow-hidden">
+      <div className="absolute inset-0">
+        <BigGlobe className="w-full h-full scale-[1.10] origin-center" />
       </div>
     </div>
   );
