@@ -167,7 +167,7 @@ export default function HomePage() {
             Efficiently run AI workloads anywhere without managing storage
           </p>
 
-          <div className="relative w-full h-96 md:h-160 mt-8 md:mt-12">
+          <div className="relative w-full h-64 md:h-96 mt-8 md:mt-12">
             <GlobeDemo />
           </div>
         </div>

@@ -13,7 +13,7 @@ const GLOBE_CONFIG: COBEOptions = {
   onRender: () => {},
   devicePixelRatio: 2,
   phi: 0,
-  theta: 0.3,
+  theta: 0.5,
   dark: 0,
   diffuse: 0.5,
   mapSamples: 16000,
@@ -145,7 +145,7 @@ function BigGlobe({
 export function GlobeDemo() {
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -top-1/2 left-1/2 transform -translate-x-1/2 scale-150">
         <BigGlobe className="w-full h-full" />
       </div>
     </div>
