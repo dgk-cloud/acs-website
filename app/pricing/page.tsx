@@ -32,10 +32,13 @@ export default function PricingPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white tracking-tighter leading-none">
-            ACS provides object storage built for <span className="metallic-text">AI workloads</span>
+            ACS provides object storage built for <span className="metallic-text">GenAI workloads</span>
           </h1>
           <p className="max-w-2xl mx-auto text-xl text-slate-300/90 leading-relaxed">
-            Use your data freely from any cloud at any time. Simple transparent pricing. Only pay for what you use in ACS with no hidden fees.
+            Use your data freely from any cloud at any time.
+          </p>
+          <p className="max-w-2xl mx-auto text-lg text-slate-300/90 leading-relaxed">
+            Simple transparent pricing. Only pay for what you use in ACS with no hidden fees. Scale your storage needs as your AI workloads grow.
           </p>
           <div className="mt-8">
             <Link href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] hover:from-[#2F74FF]/90 hover:to-[#1E40AF]/90 text-white px-10 py-5 rounded-2xl font-light text-xl tracking-tight transition-all duration-300 shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:shadow-[0_12px_40px_rgba(47,116,255,0.4)] hover:scale-105">
@@ -48,6 +51,8 @@ export default function PricingPage() {
           </div>
         </section>
 
+
+
         {/* Pricing Cards */}
         <section className="max-w-6xl mx-auto space-y-12">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -57,7 +62,7 @@ export default function PricingPage() {
                 <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
                 <h2 className="text-2xl font-light tracking-tight text-white">Free Tier</h2>
               </div>
-              <p className="text-slate-300/80 mb-8 text-base leading-relaxed">Perfect for getting started with ACS.</p>
+              <p className="text-slate-300/80 mb-8 text-base leading-relaxed">Perfect for getting started with ACS. Zero egress fees.</p>
               <div className="mb-10">
                 <span className="text-5xl font-light text-white">$0</span>
                 <span className="text-slate-300/60">/mo</span>
@@ -161,6 +166,8 @@ export default function PricingPage() {
               </Link>
             </div>
           </div>
+          
+      
 
           {/* Pricing Comparison Table */}
           <div className="max-w-4xl mx-auto space-y-6">
@@ -197,23 +204,40 @@ export default function PricingPage() {
                     <td className="py-4 px-4 text-sm text-center text-slate-300/80">Free</td>
                     <td className="py-4 px-4 text-sm text-center text-slate-300/80">Free</td>
                   </tr>
-                  <tr className="border-b border-slate-600/20 hover:bg-slate-800/20 transition">
-                    <td className="py-4 px-4 text-sm font-light text-white">Support</td>
-                    <td className="py-4 px-4 text-sm text-center text-slate-300/80">Community</td>
-                    <td className="py-4 px-4 text-sm text-center text-slate-300/80">Email</td>
-                    <td className="py-4 px-4 text-sm text-center text-slate-300/80">Dedicated</td>
-                  </tr>
-                  <tr className="hover:bg-slate-800/20 transition">
-                    <td className="py-4 px-4 text-sm font-light text-white">SLA</td>
-                    <td className="py-4 px-4 text-sm text-center text-slate-300/80">-</td>
-                    <td className="py-4 px-4 text-sm text-center text-slate-300/80">99.9%</td>
-                    <td className="py-4 px-4 text-sm text-center text-slate-300/80">99.99%</td>
-                  </tr>
+
+
                 </tbody>
               </table>
             </div>
           </div>
+          
+          {/* Zero Egress Fees Note */}
+          <div className="max-w-4xl mx-auto text-center mt-8">
+            <div className="backdrop-blur-xl bg-gradient-to-br from-slate-900/60 to-slate-800/40 border border-[#2F74FF]/30 rounded-2xl p-8 shadow-[0_8px_30px_rgba(47,116,255,0.1)]">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-full flex items-center justify-center mb-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                    <path d="M12 2L2 7l10 5 10-5-10-5Z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-light text-white mb-4">Zero Egress Fees</h3>
+                <p className="text-slate-300/90 text-lg leading-relaxed max-w-3xl">
+                  Many other cloud providers make the majority of their money from object storage from egress and we <span className="text-[#2F74FF] font-medium">don&apos;t charge</span> for regional data transfer, region-to-region data transfer or data transfer to and from the internet.
+                </p>
+                <div className="mt-4 inline-flex items-center gap-2 bg-[#2F74FF]/10 border border-[#2F74FF]/20 text-[#2F74FF] px-4 py-2 rounded-full text-sm font-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6 9 17l-5-5"></path>
+                  </svg>
+                  No hidden transfer costs
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
+
+
 
         {/* Example Pricing */}
         <section className="max-w-6xl mx-auto space-y-12">
@@ -244,13 +268,13 @@ export default function PricingPage() {
                 </div>
               </div>
               <div className="bg-[#2F74FF]/10 border border-[#2F74FF]/20 rounded-xl p-4">
-                <p className="text-[#2F74FF] text-sm font-light">31x cheaper than S3, 5x cheaper than R2</p>
+                <p className="text-[#2F74FF] text-sm font-light">S3 is 31X, R2 is 5X more</p>
               </div>
             </div>
 
             {/* Example 2 */}
             <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl p-8">
-              <h3 className="text-xl font-light text-white mb-4">Medium Workload</h3>
+              <h3 className="text-xl font-light text-white mb-4">High Storage Workload</h3>
               <p className="text-slate-300/80 mb-6">100TB data, 10M requests/month</p>
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
@@ -267,7 +291,7 @@ export default function PricingPage() {
                 </div>
               </div>
               <div className="bg-[#2F74FF]/10 border border-[#2F74FF]/20 rounded-xl p-4">
-                <p className="text-[#2F74FF] text-sm font-light">4x cheaper than S3, 2.5x cheaper than R2</p>
+                <p className="text-[#2F74FF] text-sm font-light">S3 is 4X, R2 is 2.5X more</p>
               </div>
             </div>
 
@@ -290,7 +314,7 @@ export default function PricingPage() {
                 </div>
               </div>
               <div className="bg-[#2F74FF]/10 border border-[#2F74FF]/20 rounded-xl p-4">
-                <p className="text-[#2F74FF] text-sm font-light">7x cheaper than S3, 5x cheaper than R2</p>
+                <p className="text-[#2F74FF] text-sm font-light">S3 is 7X, R2 is 5X more</p>
               </div>
             </div>
           </div>
@@ -379,21 +403,15 @@ export default function PricingPage() {
             <div>
               <h4 className="text-lg font-light text-white mb-6 tracking-tight">Legal</h4>
               <div className="space-y-3">
-                <Link
-                  href="/legal/privacy"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Privacy Policy
-                </Link>
-                <Link
-                  href="/legal/terms"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+                </span>
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Terms of Service
-                </Link>
-                <Link href="/legal/sla" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                </span>
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Service Level Agreement
-                </Link>
+                </span>
               </div>
             </div>
           </div>

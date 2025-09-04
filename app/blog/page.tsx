@@ -109,21 +109,15 @@ export default function BlogPage() {
             <div>
               <h4 className="text-lg font-light text-white mb-6 tracking-tight">Legal</h4>
               <div className="space-y-3">
-                <Link
-                  href="/legal/privacy"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Privacy Policy
-                </Link>
-                <Link
-                  href="/legal/terms"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+                </span>
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Terms of Service
-                </Link>
-                <Link href="/legal/sla" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                </span>
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Service Level Agreement
-                </Link>
+                </span>
               </div>
             </div>
           </div>

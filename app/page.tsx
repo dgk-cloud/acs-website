@@ -17,12 +17,12 @@ function FAQItem({ question, answer, isOpen, onToggle }: {
     <div className="backdrop-blur-xl bg-slate-800/30 border border-slate-600/30 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:border-slate-500/50 transition-all duration-300">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-6 text-left group"
+        className="w-full flex items-center justify-between p-4 md:p-6 text-left group"
       >
-        <span className="text-lg font-medium text-white group-hover:text-slate-200 transition-colors pr-4">
+        <span className="text-base md:text-lg font-medium text-white group-hover:text-slate-200 transition-colors pr-4">
           {question}
         </span>
-        <div className="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-200">
+        <div className="flex-shrink-0 w-6 h-6 md:w-8 md:h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -42,10 +42,10 @@ function FAQItem({ question, answer, isOpen, onToggle }: {
           </svg>
         </div>
       </button>
-      <div className={`px-6 pb-6 transition-all duration-300 ease-in-out ${
+      <div className={`px-4 md:px-6 pb-4 md:pb-6 transition-all duration-300 ease-in-out ${
         isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
       }`}>
-        <p className="text-slate-300/80 text-lg leading-relaxed font-light">
+        <p className="text-slate-300/80 text-base md:text-lg leading-relaxed font-light">
           {answer}
         </p>
       </div>
@@ -60,7 +60,7 @@ function FAQSection() {
   const faqs = [
     {
       question: "What is Object Storage?",
-      answer: "Object storage is a data storage architecture that manages data as self-contained &quot;objects&quot; comprising the data itself, rich metadata, and a unique identifier, stored in a flat, massively scalable pool rather than hierarchical folders or fixed-size blocks. It&apos;s optimized for unlimited amounts of data, offering high durability, easy access via APIs, and cost-effective scalability."
+      answer: "Object storage is a data storage architecture that manages data as self-contained \"objects\" comprising the data itself, rich metadata, and a unique identifier, stored in a flat, massively scalable pool rather than hierarchical folders or fixed-size blocks. It's optimized for unlimited amounts of data, offering high durability, easy access via APIs, and cost-effective scalability."
     },
     {
       question: "How do I work with this S3 compatible API?",
@@ -82,12 +82,12 @@ function FAQSection() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-3xl shadow-[0_10px_60px_-15px_rgba(0,0,0,0.8)] p-8">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+      <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-3xl shadow-[0_10px_60px_-15px_rgba(0,0,0,0.8)] p-6 md:p-8">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-20">
           {/* Left Column */}
           <div className="lg:w-2/5 xl:w-1/3">
-            <div className="sticky top-8">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2F74FF]/20 to-[#1E40AF]/20 text-[#2F74FF] px-4 py-2 rounded-full text-sm font-light tracking-wide mb-8 backdrop-blur-sm border border-[#2F74FF]/30">
+            <div className="sticky top-6 md:p-8">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2F74FF]/20 to-[#1E40AF]/20 text-[#2F74FF] px-3 md:px-4 py-2 rounded-full text-sm font-light tracking-wide mb-4 md:mb-6 md:mb-8 backdrop-blur-sm border border-[#2F74FF]/30">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                   <circle cx="12" cy="12" r="10"></circle>
                   <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
@@ -95,7 +95,7 @@ function FAQSection() {
                 </svg>
                 Knowledge Base
               </div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8 leading-tight text-white tracking-tighter">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-4 md:mb-6 md:mb-8 leading-tight text-white tracking-tighter">
                 Frequently Asked <span className="metallic-text">Questions</span>
               </h2>
               <div className="space-y-4">
@@ -150,136 +150,154 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center mt-16">
-          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-900/30 border border-blue-700/50 text-blue-300 rounded-full text-sm font-medium backdrop-blur-sm hover:bg-blue-900/50 hover:border-blue-600/70 transition-all duration-300 hover:scale-105">
-            Worldwide Cloud Object Storage
+      <section className="pt-20 md:pt-28 pb-4 md:pb-10 -mb-6 sm:-mb-8 px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto">
+          {/* Globe behind */}
+          <div className="mt-6 md:mt-2">
+            <GlobeDemo />
           </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal text-white tracking-tighter mb-6">
-            Globally Distributed, Performant, S3 Compatible{" "}
-            <span className="metallic-text">
-              Object Storage
-            </span>
-          </h1>
-
-          <p className="text-xl text-muted-foreground text-balance  max-w-3xl mx-auto">
-            Efficiently run AI workloads anywhere without managing storage
-          </p>
-
-          <GlobeDemo />
+          {/* Centered overlay text */}
+          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <div className="mb-2 md:mb-4 inline-flex items-center gap-2 px-2.5 md:px-4 py-1.5 md:py-2 bg-blue-900/30 border border-blue-700/50 text-blue-300 rounded-full text-xs md:text-sm font-medium backdrop-blur-sm">
+              Worldwide Cloud Object Storage
+            </div>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-normal text-white tracking-tighter mb-1.5 md:mb-4 px-2">
+              Globally Distributed, Performant, S3 Compatible <span className="metallic-text">Object Storage</span>
+            </h1>
+            <p className="text-sm sm:text-base md:text-xl text-muted-foreground text-balance max-w-2xl md:max-w-3xl mx-auto px-2">
+              Efficiently run AI workloads anywhere without managing storage
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+      <section className="pt-4 md:pt-10 pb-10 md:pb-20 px-3 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white tracking-tight mb-6">
-              <span className="metallic-text">Core</span> Features
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-normal text-white tracking-tight mb-3 md:mb-6 px-2">
+              <span className="metallic-text"></span> Everything you need for productive <span className="metallic-text">AI workloads</span> and <span className="metallic-text">global data storage</span>.
             </h2>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Everything you need for productive AI workloads and global data storage.
-            </p>
+          
           </div>
 
           {/* Core Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {/* S3 Compatible API */}
-            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
-              <div className="p-8 flex flex-col h-full">
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-2.5 sm:p-3 md:p-6 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
-                  <h3 className="text-xl font-light tracking-tight text-white">S3 Compatible API</h3>
+                  <h3 className="text-sm sm:text-base md:text-xl font-light tracking-tight text-white">S3 Compatible API</h3>
                 </div>
-                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                <p className="text-slate-300/80 mb-2.5 md:mb-6 text-xs sm:text-sm md:text-base leading-relaxed flex-grow">
                   Work seamlessly with existing AWS SDKs and extensions with a one line code change to the endpoint.
                 </p>
-                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
-                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                <div className="bg-slate-800/50 rounded-lg p-2 sm:p-2.5 md:p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-[11px] sm:text-xs md:text-sm text-[#2F74FF] font-mono tracking-wide">
                     api: s3-compatible | endpoint: acceleratedprod.com
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Strong Consistency - Spans 2 columns */}
-            <div className="md:col-span-2 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
-              <div className="p-8 flex flex-col h-full">
+            {/* SOC-2 Type 2 Compliance */}
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-2.5 sm:p-3 md:p-6 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
-                  <h3 className="text-xl font-light tracking-tight text-white">Strong Consistency</h3>
+                  <h3 className="text-sm sm:text-base md:text-xl font-light tracking-tight text-white">SOC-2 Type 2 Compliant</h3>
                 </div>
-                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
-                  Simplify development without sacrificing performance with strong consistency within a region and eventual consistency between regions.
+                <p className="text-slate-300/80 mb-2.5 md:mb-6 text-xs sm:text-sm md:text-base leading-relaxed flex-grow">
+                  We implement enterprise-grade security measures, undergo regular security audits and your data remains encrypted both in transit and at rest.
                 </p>
-                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
-                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
-                    consistency: strong | regions: eventual
-                  </div>
+                <div className="mt-auto">
+                  <a 
+                    href="https://trust.delve.co/accelerated-cloud-storage" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#2F74FF] hover:bg-[#2F74FF]/90 text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-light transition-all duration-300 hover:scale-105"
+                  >
+                    View Compliance Report
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15,3 21,3 21,9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* High Performance */}
-            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
-              <div className="p-8 flex flex-col h-full">
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-2.5 sm:p-3 md:p-6 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
-                  <h3 className="text-xl font-light tracking-tight text-white">High Performance</h3>
+                  <h3 className="text-sm sm:text-base md:text-xl font-light tracking-tight text-white">High Performance</h3>
                 </div>
-                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                <p className="text-slate-300/80 mb-2.5 md:mb-6 text-xs sm:text-sm md:text-base leading-relaxed flex-grow">
                   Achieve lightning-fast inference with optimized data access and low latency reads.
                 </p>
-                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
-                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                <div className="bg-slate-800/50 rounded-lg p-2 sm:p-2.5 md:p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-[11px] sm:text-xs md:text-sm text-[#2F74FF] font-mono tracking-wide">
                     latency: &lt;10ms | throughput: unlimited
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Global Data Distribution - Spans 2 columns */}
-            <div className="md:col-span-2 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
-              <div className="p-8 flex flex-col h-full">
+            {/* Strong Consistency - Spans 2 columns */}
+            <div className="md:col-span-2 backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-2.5 sm:p-3 md:p-6 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
-                  <h3 className="text-xl font-light tracking-tight text-white">Global Data Distribution</h3>
+                  <h3 className="text-sm sm:text-base md:text-xl font-light tracking-tight text-white">Strong Consistency</h3>
                 </div>
-                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
-                  Data is stored in datacenters around the world for optimal performance and reliability.
+                <p className="text-slate-300/80 mb-2.5 md:mb-6 text-xs sm:text-sm md:text-base leading-relaxed flex-grow">
+                  Simplify development without sacrificing performance with strong consistency within a region and eventual consistency between regions.
                 </p>
-                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
-                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
-                    regions: [us-v (united states, virginia)
-us-oh (united states, ohio)
-us-ca (united states, california)
-us-or (united states, oregon)
-ca-q (canada, quebec)
-uk-l (uk, greater london)
-de-he (germany, hesse)
-jp-13 (japan, tokyo prefecture)
-kr-11 (south korea, seoul special city)
-au-nsw (australia, new south wales)
-]
+                <div className="bg-slate-800/50 rounded-lg p-2 sm:p-2.5 md:p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-[11px] sm:text-xs md:text-sm text-[#2F74FF] font-mono tracking-wide">
+                    consistency: strong | regions: eventual
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Highly Reliable */}
-            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
-              <div className="p-8 flex flex-col h-full">
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-slate-700/50 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.2)] hover:scale-105">
+              <div className="p-2.5 sm:p-3 md:p-6 flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
-                  <h3 className="text-xl font-light tracking-tight text-white">Highly Reliable</h3>
+                  <h3 className="text-sm sm:text-base md:text-xl font-light tracking-tight text-white">Highly Reliable</h3>
                 </div>
-                <p className="text-slate-300/80 mb-6 text-base leading-relaxed flex-grow">
+                <p className="text-slate-300/80 mb-2.5 md:mb-6 text-xs sm:text-sm md:text-base leading-relaxed flex-grow">
                   99.99% availability to ensure you can access your data whenever. 99.999999999% data durability.
                 </p>
-                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30 backdrop-blur-sm">
-                  <div className="text-sm text-[#2F74FF] font-mono tracking-wide">
+                <div className="bg-slate-800/50 rounded-lg p-2 sm:p-2.5 md:p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-[11px] sm:text-xs md:text-sm text-[#2F74FF] font-mono tracking-wide">
                     uptime: 99.99% | durability: 99.999999999%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Bottom Full-Width Card - Spans 3 columns */}
+          <div className="mt-6 md:mt-12">
+            <div className="backdrop-blur-xl bg-gradient-to-br from-slate-900/60 to-slate-800/40 border border-[#2F74FF]/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#2F74FF]/50 hover:shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:scale-105">
+              <div className="p-3 sm:p-4 md:p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-[#2F74FF] rounded-full"></div>
+                  <h3 className="text-sm sm:text-base md:text-xl font-light tracking-tight text-white">Global Infrastructure Network</h3>
+                </div>
+                <p className="text-slate-300/80 mb-2.5 md:mb-6 text-xs sm:text-sm md:text-base leading-relaxed">
+                  Our worldwide network of data centers ensures your data is always close to your users, providing optimal performance and reliability across all regions.
+                </p>
+                <div className="bg-slate-800/50 rounded-lg p-2 sm:p-2.5 md:p-4 border border-slate-600/30 backdrop-blur-sm">
+                  <div className="text-[11px] sm:text-xs md:text-sm text-[#2F74FF] font-mono tracking-wide">
+                    regions: [us-v (united states, virginia) us-oh (united states, ohio) us-ca (united states, california) us-or (united states, oregon) ca-q (canada, quebec) uk-l (uk, greater london) de-he (germany, hesse) jp-13 (japan, tokyo prefecture) kr-11 (south korea, seoul special city) au-nsw (australia, new south wales) ]
                   </div>
                 </div>
               </div>
@@ -289,58 +307,76 @@ au-nsw (australia, new south wales)
       </section>
 
       {/* Get Started Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tighter mb-6">
-              Get Started in <span className="metallic-text">Minutes</span>
+      <section id="get-started" className="py-6 sm:py-8 md:py-12 px-3 sm:px-4 lg:px-8 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-900/50"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(47,116,255,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(47,116,255,0.08),transparent_50%)]"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-12 md:mb-14">
+            <div className="inline-flex items-center gap-3 mb-6 bg-gradient-to-r from-[#2F74FF]/20 to-[#1E40AF]/20 px-6 py-3 rounded-full border border-[#2F74FF]/30">
+              <div className="w-2 h-2 bg-[#2F74FF] rounded-full animate-pulse"></div>
+              <span className="text-[#2F74FF] text-sm font-medium">Quick Start Guide</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-tighter mb-4 md:mb-6">
+              Get Started in <span className="metallic-text bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] bg-clip-text text-transparent">Minutes</span>
             </h2>
-            <p className="text-xl text-slate-300/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-300/90 max-w-3xl mx-auto leading-relaxed">
               Simple integration with your existing workflow
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Steps */}
-            <div className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 md:gap-10 items-center">
+            {/* Left: Enhanced Steps */}
+            <div className="space-y-4 sm:space-y-5 md:space-y-8">
               {/* Step 1 */}
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-2xl tracking-tight shadow-lg">
-                  1
-                </div>
-                <div>
-                  <h3 className="text-2xl font-light text-white mb-3 tracking-tight">Contact ACS for sign-up and get an API Key</h3>
-                  <p className="text-slate-300/80 text-lg leading-relaxed">Reach out to our team to get onboarded and receive your credentials.</p>
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2F74FF]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
+                <div className="relative flex items-start gap-5 p-5 rounded-2xl border border-slate-700/30 hover:border-[#2F74FF]/50 transition-all duration-300 hover:bg-slate-800/20">
+                  <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-lg sm:text-xl tracking-tight shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    1
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-light text-white mb-1 sm:mb-2 tracking-tight group-hover:text-[#2F74FF] transition-colors duration-300">Contact ACS for sign-up and get an API Key</h3>
+                    <p className="text-slate-300/80 text-sm sm:text-base md:text-lg leading-relaxed">Reach out to our team to get onboarded and receive your credentials.</p>
+                  </div>
                 </div>
               </div>
 
               {/* Step 2 */}
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-2xl tracking-tight shadow-lg">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-2xl font-light text-white mb-3 tracking-tight">Make a 1-line change to your code</h3>
-                  <p className="text-slate-300/80 text-lg leading-relaxed">Update your endpoint configuration with ACS.</p>
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2F74FF]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
+                <div className="relative flex items-start gap-5 p-5 rounded-2xl border border-slate-700/30 hover:border-[#2F74FF]/50 transition-all duration-300 hover:bg-slate-800/20">
+                  <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-lg sm:text-xl tracking-tight shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    2
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-light text-white mb-1 sm:mb-2 tracking-tight group-hover:text-[#2F74FF] transition-colors duration-300">Make a 1-line change to your code</h3>
+                    <p className="text-slate-300/80 text-sm sm:text-base md:text-lg leading-relaxed">Update your endpoint configuration with ACS.</p>
+                  </div>
                 </div>
               </div>
 
               {/* Step 3 */}
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-2xl tracking-tight shadow-lg">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-2xl font-light text-white mb-3 tracking-tight">Set your API key and start running</h3>
-                  <p className="text-slate-300/80 text-lg leading-relaxed">Configure your credentials and begin using ACS with your existing S3-compatible tools.</p>
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2F74FF]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
+                <div className="relative flex items-start gap-5 p-5 rounded-2xl border border-slate-700/30 hover:border-[#2F74FF]/50 transition-all duration-300 hover:bg-slate-800/20">
+                  <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#2F74FF] to-[#1E40AF] rounded-2xl flex items-center justify-center text-white font-light text-lg sm:text-xl tracking-tight shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    3
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-light text-white mb-1 sm:mb-2 tracking-tight group-hover:text-[#2F74FF] transition-colors duration-300">Set your API key and start running</h3>
+                    <p className="text-slate-300/80 text-sm sm:text-base md:text-lg leading-relaxed">Configure your credentials and begin using ACS with your existing S3-compatible tools.</p>
+                  </div>
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <div className="pt-8">
-                <a href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] hover:from-[#2F74FF]/90 hover:to-[#1E40AF]/90 text-white px-10 py-5 rounded-2xl font-light text-xl tracking-tight transition-all duration-300 shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:shadow-[0_12px_40px_rgba(47,116,255,0.4)] hover:scale-105">
-                  Get Started Today
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {/* Enhanced CTA Button */}
+              <div className="pt-6 md:pt-8">
+                <a href="https://calendly.com/acceleratedcloudstorage-sales-doxp/30min" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#2F74FF] to-[#1E40AF] hover:from-[#2F74FF]/90 hover:to-[#1E40AF]/90 text-white px-7 md:px-10 py-3.5 md:py-5 rounded-2xl font-light text-lg md:text-xl tracking-tight transition-all duration-500 shadow-[0_8px_30px_rgba(47,116,255,0.3)] hover:shadow-[0_16px_48px_rgba(47,116,255,0.45)] hover:scale-105 hover:-translate-y-1">
+                  <span>Get Started Today</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
                     <path d="M5 12h14"></path>
                     <path d="m12 5 7 7-7 7"></path>
                   </svg>
@@ -348,30 +384,24 @@ au-nsw (australia, new south wales)
               </div>
             </div>
 
-            {/* Right: Code Preview */}
-            <div className="backdrop-blur-sm bg-black/20 p-4 rounded-xl">
-              <div className="bg-slate-800/70 backdrop-blur-lg border border-slate-700/50 rounded-2xl shadow-lg p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+            {/* Right: Enhanced Code Preview */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#2F74FF]/20 to-[#1E40AF]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              <div className="relative backdrop-blur-sm bg-black/30 p-5 rounded-3xl border border-slate-700/50 hover:border-[#2F74FF]/50 transition-all duration-500 overflow-hidden">
+                <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-6 flex flex-col justify-center min-h-[200px] group-hover:shadow-[0_20px_60px_rgba(47,116,255,0.2)] transition-all duration-500 overflow-x-auto no-scrollbar">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex space-x-3">
+                      <div className="w-3 h-3 rounded-full bg-red-400 shadow-lg"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400 shadow-lg"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400 shadow-lg"></div>
+                    </div>
+                    <div className="text-sm text-gray-400 font-mono">main.py</div>
                   </div>
-                  <div className="text-xs text-gray-400">main.py</div>
-                </div>
-                <div className="text-sm font-mono leading-6 text-gray-300">
-                  <div className="mb-1"><span className="text-purple-400">import</span> <span className="text-green-400">boto3</span></div>
-                  <div className="mb-1">&nbsp;</div>
-                  <div className="mb-1"><span className="text-purple-400">#</span> <span className="text-gray-500">Create S3 service client</span></div>
-                  <div className="mb-1"><span className="text-blue-400">svc</span> = <span className="text-green-400">boto3</span>.<span className="text-yellow-400">client</span>(</div>
-                  <div className="mb-1 ml-4"><span className="text-yellow-400">'s3'</span>,</div>
-                  <div className="mb-1 ml-4"><span className="text-indigo-400">endpoint_url</span>=<span className="text-yellow-400">'https://accelerateprod.com'</span></div>
-                  <div className="mb-1">)</div>
-                  <div className="mb-1">&nbsp;</div>
-                  <div className="mb-1"><span className="text-purple-400">#</span> <span className="text-gray-500">Set your API key</span></div>
-                  <div className="mb-1"><span className="text-blue-400">svc</span>.<span className="text-green-400">_request_signer</span>.<span className="text-yellow-400">_credentials</span> = <span className="text-yellow-400">'your-api-key'</span></div>
-                  <div className="mb-1">&nbsp;</div>
-                  <div><span className="text-purple-400">#</span> <span className="text-gray-500">Start using ACS!</span></div>
+                  <div className="text-sm md:text-base font-mono leading-6 text-gray-300 space-y-2 min-w-[420px]">
+                    <div><span className="text-purple-400">import</span> <span className="text-green-400">boto3</span></div>
+                    <div className="text-gray-500"># Create S3 service client</div>
+                    <div><span className="text-blue-400">svc</span> = <span className="text-green-400">boto3</span>.<span className="text-yellow-400">client</span>(<span className="text-yellow-400">'s3'</span>, <span className="text-indigo-400">endpoint_url</span>=<span className="text-yellow-400">'https://accelerateprod.com'</span>)</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,25 +413,25 @@ au-nsw (australia, new south wales)
       <FAQSection />
 
       {/* Footer */}
-      <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50">
+      <footer className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid md:grid-cols-4 gap-8 md:gap-12">
             <div>
-              <div className="mb-6">
+              <div className="mb-4 md:mb-6">
                 <Image 
                   src="/acs-logo.png" 
                   alt="ACS Logo" 
                   width={200} 
                   height={100} 
-                  className="h-16 w-auto"
+                  className="h-12 md:h-16 w-auto"
                 />
               </div>
-              <p className="text-slate-300/80 text-lg leading-relaxed font-light">Worldwide cloud object storage built for AI workloads.</p>
+              <p className="text-slate-300/80 text-base md:text-lg leading-relaxed font-light">Worldwide cloud object storage built for AI workloads.</p>
             </div>
 
             <div>
-              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Product</h4>
-              <div className="space-y-3">
+              <h4 className="text-lg font-light text-white mb-4 md:mb-6 tracking-tight">Product</h4>
+              <div className="space-y-2 md:space-y-3">
                 <Link href="/" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Overview
                 </Link>
@@ -415,8 +445,8 @@ au-nsw (australia, new south wales)
             </div>
 
             <div>
-              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Company</h4>
-              <div className="space-y-3">
+              <h4 className="text-lg font-light text-white mb-4 md:mb-6 tracking-tight">Company</h4>
+              <div className="space-y-2 md:space-y-3">
                 <Link href="/blog" className="block text-slate-300/80 hover:text-white transition-colors font-light">
                   Blog
                 </Link>
@@ -427,28 +457,22 @@ au-nsw (australia, new south wales)
             </div>
 
             <div>
-              <h4 className="text-lg font-light text-white mb-6 tracking-tight">Legal</h4>
-              <div className="space-y-3">
-                <Link
-                  href="/legal/privacy"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+              <h4 className="text-lg font-light text-white mb-4 md:mb-6 tracking-tight">Legal</h4>
+              <div className="space-y-2 md:space-y-3">
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Privacy Policy
-                </Link>
-                <Link
-                  href="/legal/terms"
-                  className="block text-slate-300/80 hover:text-white transition-colors font-light"
-                >
+                </span>
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Terms of Service
-                </Link>
-                <Link href="/legal/sla" className="block text-slate-300/80 hover:text-white transition-colors font-light">
+                </span>
+                <span className="block text-slate-300/80 font-light cursor-default">
                   Service Level Agreement
-                </Link>
+                </span>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-slate-700/50 mt-12 pt-8 text-center">
+          <div className="border-t border-slate-700/50 mt-8 md:mt-12 pt-6 md:pt-6 md:pt-8 text-center">
             <p className="text-slate-400 font-light">&copy; 2025 Accelerated Cloud Storage. All rights reserved.</p>
           </div>
         </div>
